@@ -795,16 +795,16 @@ module.exports = msgHandler = async (client, message) => {
                 client.sendLinkWithAutoPreview(from, 'https://pmt.ac.id')
                 break
             case '@42':
-                client.sendText(from, sosmed)
+                client.sendLinkWithAutoPreview(from, '')
                 break
             case '@43':
-                client.sendText(from, sosmed)
+                client.sendLinkWithAutoPreview(from, 'https://instagram.com/_polmuhtegal')
                 break      
             case '@44':
-                client.sendText(from, sosmed)
+                client.sendLinkWithAutoPreview(from, 'https://pmt.ac.id')
                 break     
             case '@45':
-                client.sendText(from, sosmed)
+                client.sendLinkWithAutoPreview(from, 'https://www.facebook.com/politeknikmuhtegal')
                 break
 
                 
