@@ -27,8 +27,8 @@ module.exports = msgHandler = async (client, message) => {
         const { type, id, from, t, sender, isGroupMsg, chat, caption, isMedia, mimetype, quotedMsg, quotedMsgObj, mentionedJidList } = message
         let { body } = message
         const { name, formattedTitle } = chat
-        let { pushname, verifiedName } = sender
-        pushname = pushname || verifiedName
+        let { pushname, verifiedName, formattedName } = sender
+        pushname = pushname || verifiedName || formattedName // verifiedName is the name of someone who uses a business account
         const commands = caption || body || ''
         const command = commands.toLowerCase().split(' ')[0] || ''
         const args =  commands.split(' ')
