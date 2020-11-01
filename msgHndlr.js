@@ -787,7 +787,7 @@ module.exports = msgHandler = async (client, message) => {
             client.sendText(from, sosmed)
             break
         case '@5':
-            client.sendText(from, lokasipmt)
+            client.sendLinkWithAutoPreview(from, 'https://maps.app.goo.gl/9HqaYLMMGb1Tqkz99', lokasipmt)
             break
 
         case '!readme':
