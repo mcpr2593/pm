@@ -14,7 +14,7 @@ const { spawn, exec } = require('child_process')
 const nhentai = require('nhentai-js')
 const { API } = require('nhentai-api')
 const { liriklagu, quotemaker, randomNimek, fb, sleep, jadwalTv, ss } = require('./lib/functions')
-const { help, sosmed, snk, info, donate, readme, listChannel } = require('./lib/help')
+const { help, sosmed, lokasipmt, snk, info, donate, readme, listChannel } = require('./lib/help')
 const { stdout } = require('process')
 const nsfw_ = JSON.parse(fs.readFileSync('./lib/NSFW.json'))
 const welkom = JSON.parse(fs.readFileSync('./lib/welcome.json'))
@@ -787,7 +787,7 @@ module.exports = msgHandler = async (client, message) => {
             client.sendText(from, sosmed)
             break
         case '@5':
-            client.sendFile(from, 'https://www.google.com/maps/place/Politeknik+Muhammadiyah+Tegal/@-6.874926,109.1399646,20z/data=!4m5!3m4!1s0x0:0x8a6ce6f656c6531c!8m2!3d-6.8748841!4d109.1402355', 'location')
+            client.sendText(from, lokasipmt)
             break
 
         case '!readme':
