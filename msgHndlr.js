@@ -766,7 +766,7 @@ module.exports = msgHandler = async (client, message) => {
             const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
             client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
             break
-        case ' #menu':
+        case '#menu':
             client.sendText(from, help)
             break
         case '!readme':
