@@ -766,12 +766,20 @@ module.exports = msgHandler = async (client, message) => {
             const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
             client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
             break
+
+//PMT
         case '@menu':
             client.sendText(from, help.replace(undefined, pushname))
             break
         case '@0':
             client.sendFile(from, './media/img/pmt.jpg', 'pmt.jpg')
             break
+        case '@1':
+            client.sendFile(from, './media/img/pmt.jpg', 'pmt.jpg')
+            break
+        case '@2':
+            client.sendFile(from, './media/img/pmt.jpg', 'pmt.jpg')
+            break         
         case '@3':
             client.sendText(from, sosmed)
             break
