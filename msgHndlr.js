@@ -787,7 +787,7 @@ module.exports = msgHandler = async (client, message) => {
             client.sendText(from, sosmed)
             break
         case '@5':
-            client.sendFile(from, 'https://www.google.com/maps/place/Politeknik+Muhammadiyah+Tegal/@-6.874926,109.1399646,20z/data=!4m5!3m4!1s0x0:0x8a6ce6f656c6531c!8m2!3d-6.8748841!4d109.1402355')
+            client.sendLocationData(from, 'https://www.google.com/maps/place/Politeknik+Muhammadiyah+Tegal/@-6.874926,109.1399646,20z/data=!4m5!3m4!1s0x0:0x8a6ce6f656c6531c!8m2!3d-6.8748841!4d109.1402355')
             break
 
         case '!readme':
