@@ -769,10 +769,10 @@ module.exports = msgHandler = async (client, message) => {
         case '@menu':
             client.sendText(from, help.replace(undefined, pushname))
             break
-        case '@1':
+        case '@0':
             client.sendFile(from, './media/img/pmt.jpg', 'pmt.jpg')
             break
-        case '@':
+        case '@3':
             client.sendText(from, sosmed)
             break
 
