@@ -40,7 +40,7 @@ module.exports = msgHandler = async (client, message) => {
                 }else{
                     return `${message}`
                 }
-            }https://mhankbarbar.herokuapp.com/api
+            }
         }
 
         const mess = {
@@ -56,7 +56,7 @@ module.exports = msgHandler = async (client, message) => {
                 Iv: '[❗] Link yang anda kirim tidak valid!'
             }
         }
-        const apiKey = 'API-KEY' // apikey you can get it at 
+        const apiKey = 'API-KEY' // apikey you can get it at https://mhankbarbar.herokuapp.com/api
         const time = moment(t * 1000).format('DD/MM HH:mm:ss')
         const botNumber = await client.getHostNumber()
         const blockNumber = await client.getBlockedIds()
@@ -766,7 +766,7 @@ module.exports = msgHandler = async (client, message) => {
             const { postlink, title, subreddit, url, nsfw, spoiler } = response.data
             client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
             break
-        case ' #menu':
+        case '!help':
             client.sendText(from, help)
             break
         case '!readme':
