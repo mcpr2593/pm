@@ -789,6 +789,25 @@ module.exports = msgHandler = async (client, message) => {
         case '@4':
             client.sendText(from, sosmed)
             break
+
+            //sub Sosmed
+            case '@41':
+                client.sendLinkWithAutoPreview(from, 'https://pmt.ac.id')
+                break
+            case '@42':
+                client.sendText(from, sosmed)
+                break
+            case '@43':
+                client.sendText(from, sosmed)
+                break      
+            case '@44':
+                client.sendText(from, sosmed)
+                break     
+            case '@45':
+                client.sendText(from, sosmed)
+                break
+
+                
         case '@5':
             client.sendLinkWithAutoPreview(from, 'https://maps.app.goo.gl/9HqaYLMMGb1Tqkz99', lokasipmt)
             break
