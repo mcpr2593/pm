@@ -468,12 +468,19 @@ module.exports = msgHandler = async (client, message) => {
             case '@jawab':
                 //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
                 let jwb = body.slice(4)
-                await client.sendText(chatId, `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${jwb}`)
+                await client.sendText(quotedMsgObj.chatId, `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${jwb}`)
       
                     
                 client.reply(from, 'Permintaan Berhasil  :)', id)
                 break
 
+                case '!delete':
+                    if (!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
+                    if (!isGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan oleh admin group', id)
+                    if (!quotedMsg) return client.reply(from, 'Salah!!, kirim perintah *!delete [tagpesanbot]*', id)
+                    if (!quotedMsgObj.fromMe) return client.reply(from, 'Salah!!, Bot tidak bisa mengahpus chat user lain!', id)
+                    client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
+                    break
 
 /*PERINTAH OWNER*/        
         case '!bc':
@@ -620,13 +627,7 @@ module.exports = msgHandler = async (client, message) => {
                 client.reply(from, 'Link group tidak valid!', id)
             }
             break
-        case '!delete':
-            if (!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
-            if (!isGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan oleh admin group', id)
-            if (!quotedMsg) return client.reply(from, 'Salah!!, kirim perintah *!delete [tagpesanbot]*', id)
-            if (!quotedMsgObj.fromMe) return client.reply(from, 'Salah!!, Bot tidak bisa mengahpus chat user lain!', id)
-            client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
-            break
+        
 
         case '!lirik':
             if (args.length == 1) return client.reply(from, 'Kirim perintah *!lirik [optional]*, contoh *!lirik aku bukan boneka*', id)
