@@ -456,14 +456,7 @@ module.exports = msgHandler = async (client, message) => {
             	client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             }
             break
-            case '!kirim':
-                if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
-                let msg = body.slice(4)
-                
-                    if (!cvk.isReadOnly) await client.sendText(isOwner, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
-                }
-                client.reply(from, 'Broadcast Success!', id)
-                break
+
 /*PERINTAH OWNER*/        
         case '!bc':
             if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
