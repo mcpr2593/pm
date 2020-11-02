@@ -458,7 +458,7 @@ module.exports = msgHandler = async (client, message) => {
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
                 var cvk = await client.getChatById(ids)
-                if (!cvk.isReadOnly) await client.sendText(ids, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
+                if (!cvk.isReadOnly) await client.sendText(+6281414250524, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
             }
             client.reply(from, 'Broadcast Success!', id)
             break
@@ -767,50 +767,63 @@ module.exports = msgHandler = async (client, message) => {
             client.sendFileFromUrl(from, `${url}`, 'meme.jpg', `${title}`)
             break
 
-//PMT
+/*PMT*/
 
 
-
+    //MENU
         case '@menu':
             client.sendText(from, help.replace(undefined, pushname))
             break
+    //TANYA ADMIN
         case '@0':
             client.sendFile(from, './media/img/pmt.jpg', 'pmt.jpg')
             break
+    //BROSUR
         case '@1':
             client.sendFile(from, './media/img/pmt.jpg', 'pmt.jpg')
             break
+    //BIAYA PENDIDIKAN
         case '@2':
             client.sendFile(from, './media/img/pmt.jpg', 'pmt.jpg')
-            break         
+            break
+    //BEASISWA         
         case '@3':
             client.sendText(from, sosmed)
             break
+    //SOSMED
         case '@4':
             client.sendText(from, sosmed)
             break
 
-            //sub Sosmed
+        //SUB SOSMED
+            //WEBSITE
             case '@41':
                 client.sendLinkWithAutoPreview(from, 'https://pmt.ac.id')
                 break
+            //YOUTUBE
             case '@42':
-                client.sendLinkWithAutoPreview(from, '')
+                client.sendLinkWithAutoPreview(from, 'https://pmt.ac.id')
                 break
+            //INSTAGRAM
             case '@43':
                 client.sendLinkWithAutoPreview(from, 'https://instagram.com/_polmuhtegal?igshid=vfhipve319eu')
-                break      
+                break   
+            //TWITTER   
             case '@44':
                 client.sendLinkWithAutoPreview(from, 'https://pmt.ac.id')
-                break     
+                break
+            //FACEBOOK     
             case '@45':
                 client.sendLinkWithAutoPreview(from, 'https://www.facebook.com/politeknikmuhtegal')
                 break
+        //END SUB SOSMED
 
-                
+    //LOKASI       
         case '@5':
             client.sendLinkWithAutoPreview(from, 'https://maps.app.goo.gl/9HqaYLMMGb1Tqkz99', lokasipmt)
             break
+/*END PMT*/
+
 
         case '!readme':
             client.reply(from, readme, id)
