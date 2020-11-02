@@ -253,6 +253,7 @@ module.exports = msgHandler = async (client, message) => {
         case '!creator':
             client.sendContact(from, '6285892766102@c.us')
             break
+
         case '!ig':
             if (args.length === 1) return client.reply(from, 'Kirim perintah *!ig [linkIg]* untuk contoh silahkan kirim perintah *!readme*')
             if (!args[1].match(isUrl) && !args[1].includes('instagram.com')) return client.reply(from, mess.error.Iv, id)
@@ -455,6 +456,15 @@ module.exports = msgHandler = async (client, message) => {
             	client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             }
             break
+            case '!kirim':
+                if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
+                let msg = body.slice(4)
+                
+                    if (!cvk.isReadOnly) await client.sendText(isOwner, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
+                }
+                client.reply(from, 'Broadcast Success!', id)
+                break
+/*PERINTAH OWNER*/        
         case '!bc':
             if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
             let msg = body.slice(4)
@@ -465,8 +475,30 @@ module.exports = msgHandler = async (client, message) => {
             }
             client.reply(from, 'Broadcast Success!', id)
             break
-
-
+        case '!getss':
+            if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
+            const sesPic = await client.getSnapshot()
+            client.sendFile(from, sesPic, 'session.png', 'Neh...', id)
+            break
+        case '!leaveall':
+            if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot', id)
+            const allChats = await client.getAllChatIds()
+            const allGroups = await client.getAllGroups()
+            for (let gclist of allGroups) {
+                await client.sendText(gclist.contact.id, `Maaf bot sedang pembersihan, total chat aktif : ${allChats.length}`)
+                await client.leaveGroup(gclist.contact.id)
+            }
+            client.reply(from, 'Succes leave all group!', id)
+            break
+        case '!clearall':
+            if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot', id)
+            const allChatz = await client.getAllChats()
+            for (let dchat of allChatz) {
+                await client.deleteChat(dchat.id)
+            }
+            client.reply(from, 'Succes clear all chat!', id)
+            break
+/*END PERINTAH OWNER*/       
 
 
         case '!adminlist':
@@ -509,24 +541,7 @@ module.exports = msgHandler = async (client, message) => {
             }
             client.reply(from, 'Succes kick all member', id)
             break
-        case '!leaveall':
-            if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot', id)
-            const allChats = await client.getAllChatIds()
-            const allGroups = await client.getAllGroups()
-            for (let gclist of allGroups) {
-                await client.sendText(gclist.contact.id, `Maaf bot sedang pembersihan, total chat aktif : ${allChats.length}`)
-                await client.leaveGroup(gclist.contact.id)
-            }
-            client.reply(from, 'Succes leave all group!', id)
-            break
-        case '!clearall':
-            if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot', id)
-            const allChatz = await client.getAllChats()
-            for (let dchat of allChatz) {
-                await client.deleteChat(dchat.id)
-            }
-            client.reply(from, 'Succes clear all chat!', id)
-            break
+
         case '!add':
             const orang = args[1]
             if (!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
@@ -601,10 +616,7 @@ module.exports = msgHandler = async (client, message) => {
             if (!quotedMsgObj.fromMe) return client.reply(from, 'Salah!!, Bot tidak bisa mengahpus chat user lain!', id)
             client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
             break
-        case '!getses':
-            const sesPic = await client.getSnapshot()
-            client.sendFile(from, sesPic, 'session.png', 'Neh...', id)
-            break
+
         case '!lirik':
             if (args.length == 1) return client.reply(from, 'Kirim perintah *!lirik [optional]*, contoh *!lirik aku bukan boneka*', id)
             const lagu = body.slice(7)
