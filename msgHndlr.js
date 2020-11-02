@@ -42,18 +42,10 @@ module.exports = msgHandler = async (client, message) => {
                 }
             }
         }
-        wa.create().then(client => start(client));
-
-        function start(client) {
-          client.onMessage(async message => {
-            if (message.body === 'Hi') {
-              await client.sendText(message.from, '👋 Hello!');
-            }
-          });
-        }
 
 
 
+        
         const mess = {
             wait: '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar',
             error: {
@@ -75,7 +67,7 @@ module.exports = msgHandler = async (client, message) => {
         const groupAdmins = isGroupMsg ? await client.getGroupAdmins(groupId) : ''
         const isGroupAdmins = isGroupMsg ? groupAdmins.includes(sender.id) : false
         const isBotGroupAdmins = isGroupMsg ? groupAdmins.includes(botNumber + '@c.us') : false
-        const ownerNumber = ["628158200904@c.us","6281414250524"] // replace with your whatsapp number
+        const ownerNumber = ["6281414250524c.us", "628158200904@c.us"] // replace with your whatsapp number
         const isOwner = ownerNumber.includes(sender.id)
         const isBlocked = blockNumber.includes(sender.id)
         const isNsfw = isGroupMsg ? nsfw_.includes(chat.id) : false
