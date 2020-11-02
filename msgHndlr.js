@@ -462,7 +462,7 @@ module.exports = msgHandler = async (client, message) => {
                 //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
                 let jwb = body.slice(0)
                 const isi = await decryptMedia(quotedMsg, uaOverride)
-                await client.sendText(isi, `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${jwb}`)
+                await client.sendText(quotedMsgObj, `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${jwb}`)
       
                     
                 client.reply(from, 'Permintaan Berhasil  :)', id)
