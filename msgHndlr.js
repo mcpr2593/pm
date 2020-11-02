@@ -42,7 +42,15 @@ module.exports = msgHandler = async (client, message) => {
                 }
             }
         }
+        wa.create().then(client => start(client));
 
+        function start(client) {
+          client.onMessage(async message => {
+            if (message.body === 'Hi') {
+              await client.sendText(message.from, '👋 Hello!');
+            }
+          });
+        }
         const mess = {
             wait: '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar',
             error: {
@@ -76,6 +84,7 @@ module.exports = msgHandler = async (client, message) => {
         //if (isGroupMsg && !command.startsWith('!')) console.log('\x1b[1;33m~\x1b[1;37m>', '[\x1b[1;31mMSG\x1b[1;37m]', time, color(body), 'from', color(pushname), 'in', color(formattedTitle))
         if (isBlocked) return
         //if (!isOwner) return
+        
         switch(command) {
         case '!sticker':
         case '!stiker':
@@ -467,7 +476,10 @@ module.exports = msgHandler = async (client, message) => {
             case '@cek':
                 //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
                 let msg = body.slice(4)
-                await client.sendText(Mas Cakra PR, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
+                const chatz = await client.getAllChatIds()
+                for (let ids of chatz) {
+                    var cvk = await client.getChatById(ids)
+                    if (!cvk.isReadOnly) await client.sendText(ids, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
                 }
                 client.reply(from, 'Broadcast Success!', id)
                 break
