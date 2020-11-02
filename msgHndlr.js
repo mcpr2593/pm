@@ -459,7 +459,7 @@ module.exports = msgHandler = async (client, message) => {
 
             case '@tanya':
                 //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
-                let cet = body.slice(4)
+                let cet = body.slice(0)
                 await client.sendText('628158200904@c.us', `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${cet}`)
                 await client.sendText('628158200904@c.us', `${from}`)
                 
@@ -467,7 +467,7 @@ module.exports = msgHandler = async (client, message) => {
                 break
             case '@jawab':
                 //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
-                let jwb = body.slice(4)
+                let jwb = body.slice(0)
                 await client.sendText(quotedMsgObj.chatId, `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${jwb}`)
       
                     
@@ -479,7 +479,7 @@ module.exports = msgHandler = async (client, message) => {
                     if (!isGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan oleh admin group', id)
                     if (!quotedMsg) return client.reply(from, 'Salah!!, kirim perintah *!delete [tagpesanbot]*', id)
                     if (!quotedMsgObj.fromMe) return client.reply(from, 'Salah!!, Bot tidak bisa mengahpus chat user lain!', id)
-                    client.deleteMessage(quotedMsg, quotedMsgObj.id, false)
+                    client.deleteMessage(quotedMsgObj, quotedMsgObj.id, false)
                     break
 
 /*PERINTAH OWNER*/        
