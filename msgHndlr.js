@@ -453,12 +453,12 @@ module.exports = msgHandler = async (client, message) => {
             }
             break
         case '!bc':
-            //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
+            if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
             let msg = body.slice(4)
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
                 var cvk = await client.getChatById(ids)
-                if (!cvk.isReadOnly) await client.sendText(+6281414250524, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
+                if (!cvk.isReadOnly) await client.sendText(ids, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
             }
             client.reply(from, 'Broadcast Success!', id)
             break
@@ -829,7 +829,7 @@ module.exports = msgHandler = async (client, message) => {
             client.reply(from, readme, id)
             break
         case '!info':
-            client.sendLinkWithAutoPreview(from, 'https://github.com/mhankbarbar/whatsapp-bot', info)
+            client.sendLlocation(from, '-6.874879, 109.140249', info)
             break
         case '!snk':
             client.reply(from, snk, id)
