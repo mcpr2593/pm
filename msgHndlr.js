@@ -458,11 +458,11 @@ module.exports = msgHandler = async (client, message) => {
             break
 
             case '@tanya':
-                if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
+                //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
                 let cet = body.slice(4)
                 await client.sendText('628158200904@c.us', `Hay admin ada pertanyaan nih\n\nDari ${from}\n${cet}`)
                 
-                client.reply(from, 'Pertanyaan Berhasil Dikirim :)', id)
+                client.reply(from, 'Permintaan Berhasil  :)', id)
                 break
 
 /*PERINTAH OWNER*/        
