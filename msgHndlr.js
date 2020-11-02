@@ -459,11 +459,11 @@ module.exports = msgHandler = async (client, message) => {
 
             case '!bc':
                 if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
-                let msg = body.slice(4)
+                let cet = body.slice(4)
                 const chatz = await client.getAllChatIds()
                 for (let ids of chatz) {
                     var cvk = await client.getChatById(ids)
-                    if (!cvk.isReadOnly) await client.sendText(isOwner, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
+                    if (!cvk.isReadOnly) await client.sendText(is, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${cet}`)
                 }
                 client.reply(from, 'Broadcast Success!', id)
                 break
@@ -471,7 +471,7 @@ module.exports = msgHandler = async (client, message) => {
 /*PERINTAH OWNER*/        
         case '!bc':
             if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
-            let msg = body.slice(25)
+            let msg = body.slice(4)
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
                 var cvk = await client.getChatById(ids)
