@@ -479,7 +479,7 @@ module.exports = msgHandler = async (client, message) => {
                     if (!isGroupAdmins) return client.reply(from, 'Fitur ini hanya bisa di gunakan oleh admin group', id)
                     if (!quotedMsg) return client.reply(from, 'Salah!!, kirim perintah *!delete [tagpesanbot]*', id)
                     if (!quotedMsgObj.fromMe) return client.reply(from, 'Salah!!, Bot tidak bisa mengahpus chat user lain!', id)
-                    client.deleteMessage(quotedMsgObj.chatId, quotedMsgObj.id, false)
+                    client.deleteMessage(quotedMsg, quotedMsgObj.id, false)
                     break
 
 /*PERINTAH OWNER*/        
