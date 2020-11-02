@@ -471,7 +471,7 @@ module.exports = msgHandler = async (client, message) => {
 /*PERINTAH OWNER*/        
         case '!bc':
             if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
-            let msg = body.slice(4)
+            let msg = body.slice(25)
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
                 var cvk = await client.getChatById(ids)
