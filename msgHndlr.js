@@ -460,7 +460,7 @@ module.exports = msgHandler = async (client, message) => {
             case '!kirim':
                 if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
                 let cet = body.slice(4)
-                await client.sendText('Romo Indosat', `[ Shinomiya Kaguya BOT Broadcast ]\n\n${cet}`)
+                await client.sendText('628158200904@c.us', `[ Shinomiya Kaguya BOT Broadcast ]\n\n${cet}`)
                 
                 client.reply(from, 'Broadcast Success!', id)
                 break
