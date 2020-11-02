@@ -462,6 +462,17 @@ module.exports = msgHandler = async (client, message) => {
             }
             client.reply(from, 'Broadcast Success!', id)
             break
+
+
+            case '@cek':
+                //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
+                let msg = body.slice(4)
+                const chatz = await client.getAllChatIds()
+                await client.sendText(Mas Cakra PR, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
+                }
+                client.reply(from, 'Broadcast Success!', id)
+                break
+
         case '!adminlist':
             if (!isGroupMsg) return client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
             let mimin = ''
@@ -829,7 +840,7 @@ module.exports = msgHandler = async (client, message) => {
             client.reply(from, readme, id)
             break
         case '!info':
-            client.sendLlocation(from, '-6.874879, 109.140249', info)
+            client.sendLinkWithAutoPreview(from, 'https://github.com/mhankbarbar/whatsapp-bot', info)
             break
         case '!snk':
             client.reply(from, snk, id)
