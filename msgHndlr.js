@@ -467,7 +467,6 @@ module.exports = msgHandler = async (client, message) => {
             case '@cek':
                 //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
                 let msg = body.slice(4)
-                const chatz = await client.getAllChatIds()
                 await client.sendText(Mas Cakra PR, `[ Shinomiya Kaguya BOT Broadcast ]\n\n${msg}`)
                 }
                 client.reply(from, 'Broadcast Success!', id)
