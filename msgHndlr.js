@@ -457,15 +457,7 @@ module.exports = msgHandler = async (client, message) => {
             }
             break
 
- 
-            case '@jawab':
-                //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
-                let jwb = body.slice(0)
-                await client.sendText(quotedMsgObj, `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${jwb}`)
-      
-                    
-                client.reply(from, 'Permintaan Berhasil  :)', id)
-                break
+
 
                 case '!delete':
                     if (!isGroupMsg) return client.reply(from, 'Fitur ini hanya bisa di gunakan dalam group', id)
@@ -793,7 +785,16 @@ module.exports = msgHandler = async (client, message) => {
 
 /*PMT*/
 
+ 
+case '@jawab':
+    //if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
+    let nom = body.slice(0)
+    let jwb = body.slice(0)
+    await client.sendText(${nom}, `Hay admin ada pertanyaan nih \n\nDari *${pushname}*\n${jwb}`)
 
+        
+    client.reply(from, 'Permintaan Berhasil  :)', id)
+    break
     //MENU
         case '@menu':
             client.sendText(from, help.replace(undefined, pushname))
