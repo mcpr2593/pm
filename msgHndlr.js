@@ -467,14 +467,14 @@ module.exports = msgHandler = async (client, message) => {
                     client.deleteMessage(quotedMsgObj, quotedMsgObj.id, false)
                     break
 
-/*PERINTAH OWNER*/        
+/*PERINTAH OWNER (from, loli.result, 'loli.jpeg', 'Lolinya om', id)*/        
         case '!bc':
             if (!isOwner) return client.reply(from, 'Perintah ini hanya untuk Owner bot!', id)
             let msg = body.slice(4)
             const chatz = await client.getAllChatIds()
             for (let ids of chatz) {
                 var cvk = await client.getChatById(ids)
-                if (!cvk.isReadOnly) await client.sendText(ids, `[ PMT BOT Broadcast ]\n\n${msg}`)
+                if (!cvk.isReadOnly) await client.sendfile(ids, `[ PMT BOT Broadcast ]\n\n${msg}`)
             }
             client.reply(from, 'Broadcast Success!', id)
             break
